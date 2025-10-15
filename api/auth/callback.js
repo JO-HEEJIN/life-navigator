@@ -39,8 +39,9 @@ module.exports = async (req, res) => {
 
         console.log('User authenticated:', userId);
 
-        // Store tokens (in production, use Redis or database)
-        setUserTokens(userId, tokens);
+        // Store tokens in Redis
+        await setUserTokens(userId, tokens);
+        console.log('Tokens stored in Redis for user:', userId);
 
         // Set cookie with userId
         res.setHeader('Set-Cookie', `userId=${userId}; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400`);

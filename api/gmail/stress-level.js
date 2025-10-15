@@ -27,8 +27,8 @@ module.exports = async (req, res) => {
             });
         }
 
-        // Check if user is authenticated
-        const tokens = getUserTokens(userId);
+        // Get user's tokens from Redis
+        const tokens = await getUserTokens(userId);
         if (!tokens) {
             return res.status(401).json({
                 error: 'Not authenticated',

@@ -1,11 +1,10 @@
 /**
  * Shared OAuth Configuration for Vercel Serverless Functions
+ * Uses Vercel KV (Redis) for persistent token storage
  */
 
 const { google } = require('googleapis');
-
-// In-memory token storage (for demo - use database in production)
-const userTokens = new Map();
+const { kv } = require('@vercel/kv');
 
 const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID,
@@ -13,18 +12,28 @@ const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_REDIRECT_URI
 );
 
-function getUserTokens(userId) {
-    return userTokens.get(userId);
+async function getUserTokens(userId) {
+    try {
+        const tokens = await kv.get(`user_tokens:${userId}`);
+        return tokens;
+    } catch (error) {
+        console.error('Error getting user tokens from Redis:', error);
+        return null;
+    }
 }
 
-function setUserTokens(userId, tokens) {
-    userTokens.set(userId, tokens);
-    oauth2Client.setCredentials(tokens);
+async function setUserTokens(userId, tokens) {
+    try {
+        // Store tokens in Redis with 24 hour expiration
+        await kv.set(`user_tokens:${userId}`, tokens, { ex: 86400 });
+        oauth2Client.setCredentials(tokens);
+    } catch (error) {
+        console.error('Error setting user tokens in Redis:', error);
+    }
 }
 
 module.exports = {
     oauth2Client,
     getUserTokens,
-    setUserTokens,
-    userTokens
+    setUserTokens
 };

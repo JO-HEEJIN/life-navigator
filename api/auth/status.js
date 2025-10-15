@@ -26,11 +26,14 @@ module.exports = async (req, res) => {
 
         const userId = cookies.userId;
 
-        if (userId && getUserTokens(userId)) {
-            return res.status(200).json({
-                authenticated: true,
-                userId: userId
-            });
+        if (userId) {
+            const tokens = await getUserTokens(userId);
+            if (tokens) {
+                return res.status(200).json({
+                    authenticated: true,
+                    userId: userId
+                });
+            }
         }
 
         res.status(200).json({ authenticated: false });
