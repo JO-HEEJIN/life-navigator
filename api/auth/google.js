@@ -16,6 +16,14 @@ module.exports = async (req, res) => {
     }
 
     try {
+        // Debug: Check environment variables
+        console.log('Environment check:', {
+            hasClientId: !!process.env.GOOGLE_CLIENT_ID,
+            hasClientSecret: !!process.env.GOOGLE_CLIENT_SECRET,
+            hasRedirectUri: !!process.env.GOOGLE_REDIRECT_URI,
+            redirectUri: process.env.GOOGLE_REDIRECT_URI
+        });
+
         const authUrl = oauth2Client.generateAuthUrl({
             access_type: 'offline',
             scope: [
@@ -27,10 +35,12 @@ module.exports = async (req, res) => {
             prompt: 'consent'
         });
 
+        console.log('Generated auth URL:', authUrl);
+
         res.writeHead(302, { Location: authUrl });
         return res.end();
     } catch (error) {
         console.error('OAuth initiation error:', error);
-        res.status(500).json({ error: 'OAuth initiation failed' });
+        res.status(500).json({ error: 'OAuth initiation failed', message: error.message });
     }
 };
