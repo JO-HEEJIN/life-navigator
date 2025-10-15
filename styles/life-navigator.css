@@ -1,0 +1,449 @@
+/**
+ * Life Navigator Component Styles
+ * Mirrors Farm Navigators card and panel styles
+ */
+
+/* Insight Cards Grid - Similar to Satellite Data Cards */
+.insight-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.insight-card {
+    background: var(--bg-card);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.insight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.insight-card h3 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.insight-card .value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--electric-blue);
+    margin: var(--spacing-sm) 0;
+}
+
+.insight-card .status {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.insight-card .source {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    margin-top: var(--spacing-sm);
+}
+
+/* Card Status Colors */
+.insight-card.status-good {
+    border-color: var(--success-color);
+    box-shadow: 0 4px 12px rgba(0, 200, 83, 0.2);
+}
+
+.insight-card.status-warning {
+    border-color: var(--warning-color);
+    box-shadow: 0 4px 12px rgba(255, 179, 0, 0.2);
+}
+
+.insight-card.status-critical {
+    border-color: var(--danger-color);
+    box-shadow: 0 4px 12px rgba(228, 55, 0, 0.2);
+}
+
+/* Health Score Panel - Similar to AR Health Score Display */
+.health-score-panel {
+    background: var(--bg-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.health-score-panel h3 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.score-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(135deg, var(--electric-blue), var(--neon-blue));
+    box-shadow: var(--shadow-lg);
+    transition: all 0.5s ease;
+    position: relative;
+}
+
+.score-circle::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.score-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--electric-blue);
+    position: relative;
+    z-index: 1;
+}
+
+.score-total {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 1;
+}
+
+.score-status {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Score Color Variations */
+.score-circle.score-excellent {
+    background: linear-gradient(135deg, #00C853, #00E676);
+}
+
+.score-circle.score-excellent .score-number {
+    color: #00C853;
+}
+
+.score-circle.score-good {
+    background: linear-gradient(135deg, var(--electric-blue), var(--neon-blue));
+}
+
+.score-circle.score-good .score-number {
+    color: var(--electric-blue);
+}
+
+.score-circle.score-fair {
+    background: linear-gradient(135deg, #FFB300, #FFC107);
+}
+
+.score-circle.score-fair .score-number {
+    color: #FF8F00;
+}
+
+.score-circle.score-poor {
+    background: linear-gradient(135deg, var(--rocket-red), var(--martian-red));
+}
+
+.score-circle.score-poor .score-number {
+    color: var(--rocket-red);
+}
+
+/* Recommendations Panel - Similar to Farm Game Advice */
+.recommendations-panel {
+    background: var(--bg-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.recommendations-panel h3 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.recommendations-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.recommendation-item {
+    background: linear-gradient(135deg, rgba(46, 150, 245, 0.05), rgba(9, 96, 225, 0.05));
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--electric-blue);
+    transition: all 0.3s ease;
+}
+
+.recommendation-item:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+}
+
+.recommendation-item.priority-critical {
+    border-left-color: var(--rocket-red);
+    background: linear-gradient(135deg, rgba(228, 55, 0, 0.05), rgba(142, 17, 0, 0.05));
+}
+
+.recommendation-item.priority-high {
+    border-left-color: var(--warning-color);
+    background: linear-gradient(135deg, rgba(255, 179, 0, 0.05), rgba(255, 193, 7, 0.05));
+}
+
+.recommendation-item.priority-medium {
+    border-left-color: var(--blue-yonder);
+}
+
+.recommendation-item.priority-info {
+    border-left-color: var(--success-color);
+    background: linear-gradient(135deg, rgba(0, 200, 83, 0.05), rgba(0, 230, 118, 0.05));
+}
+
+.rec-header {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.priority-badge {
+    background: var(--electric-blue);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.priority-critical .priority-badge {
+    background: var(--rocket-red);
+}
+
+.priority-high .priority-badge {
+    background: var(--warning-color);
+}
+
+.priority-info .priority-badge {
+    background: var(--success-color);
+}
+
+.category-badge {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+}
+
+.recommendation-item h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.rec-reason {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Insights Detail */
+.insights-detail {
+    background: var(--bg-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.insights-detail h3 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.insight-item {
+    background: rgba(46, 150, 245, 0.05);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.insight-item h4 {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+}
+
+.insight-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--electric-blue);
+    margin: var(--spacing-xs) 0;
+}
+
+.insight-impact {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.insight-impact.positive {
+    color: var(--success-color);
+}
+
+.insight-impact.negative {
+    color: var(--rocket-red);
+}
+
+.adjustments-summary {
+    background: rgba(0, 0, 0, 0.02);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+}
+
+.adjustments-summary h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.adjustment-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 80px;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    align-items: center;
+}
+
+.adjustment-row:last-child {
+    border-bottom: none;
+}
+
+.adj-category {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.adj-detail {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.adj-impact {
+    font-weight: 700;
+    text-align: right;
+    font-size: 0.95rem;
+}
+
+/* Architecture Comparison */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.comparison-card {
+    background: var(--bg-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.comparison-card h4 {
+    color: var(--electric-blue);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.comparison-card ul {
+    list-style: none;
+}
+
+.comparison-card li {
+    padding: var(--spacing-xs) 0;
+    color: var(--text-primary);
+}
+
+.comparison-card strong {
+    color: var(--electric-blue);
+}
+
+.architecture-note {
+    background: linear-gradient(135deg, rgba(234, 254, 7, 0.1), rgba(46, 150, 245, 0.1));
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--neon-yellow);
+}
+
+.architecture-note p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.architecture-note strong {
+    color: var(--neon-yellow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .insight-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .adjustment-row {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+    }
+
+    .adj-impact {
+        text-align: left;
+    }
+}

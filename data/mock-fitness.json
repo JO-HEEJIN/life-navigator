@@ -1,0 +1,103 @@
+{
+  "dailyMetrics": [
+    {
+      "date": "2025-10-14",
+      "sleep": {
+        "duration": 5.5,
+        "quality": 0.6,
+        "deepSleep": 1.2,
+        "remSleep": 1.5,
+        "wakeups": 3
+      },
+      "activity": {
+        "steps": 3200,
+        "activeMinutes": 15,
+        "sedentaryMinutes": 520,
+        "calories": 1850
+      },
+      "heartRate": {
+        "resting": 72,
+        "average": 78,
+        "max": 95
+      },
+      "stress": {
+        "level": 0.75,
+        "recoveryTime": 120
+      }
+    },
+    {
+      "date": "2025-10-13",
+      "sleep": {
+        "duration": 6.0,
+        "quality": 0.65,
+        "deepSleep": 1.5,
+        "remSleep": 1.8,
+        "wakeups": 2
+      },
+      "activity": {
+        "steps": 4500,
+        "activeMinutes": 30,
+        "sedentaryMinutes": 480,
+        "calories": 2100
+      },
+      "heartRate": {
+        "resting": 70,
+        "average": 75,
+        "max": 110
+      },
+      "stress": {
+        "level": 0.65,
+        "recoveryTime": 90
+      }
+    },
+    {
+      "date": "2025-10-12",
+      "sleep": {
+        "duration": 5.0,
+        "quality": 0.5,
+        "deepSleep": 1.0,
+        "remSleep": 1.2,
+        "wakeups": 4
+      },
+      "activity": {
+        "steps": 2800,
+        "activeMinutes": 10,
+        "sedentaryMinutes": 550,
+        "calories": 1750
+      },
+      "heartRate": {
+        "resting": 75,
+        "average": 82,
+        "max": 98
+      },
+      "stress": {
+        "level": 0.85,
+        "recoveryTime": 150
+      }
+    }
+  ],
+  "weeklyAverage": {
+    "sleepDuration": 5.5,
+    "sleepQuality": 0.58,
+    "dailySteps": 3500,
+    "activeMinutes": 18,
+    "stressLevel": 0.75,
+    "restingHeartRate": 72
+  },
+  "insights": {
+    "sleepTrend": "declining",
+    "activityTrend": "low",
+    "stressTrend": "increasing",
+    "recommendations": [
+      "Sleep duration below recommended 7-9 hours",
+      "Consider reducing evening screen time",
+      "Activity level significantly below 10000 steps target",
+      "Elevated stress levels detected - consider meditation or breaks"
+    ]
+  },
+  "metadata": {
+    "dataSource": "fitness_tracker",
+    "lastSync": "2025-10-14T20:00:00Z",
+    "reliability": "high"
+  }
+}

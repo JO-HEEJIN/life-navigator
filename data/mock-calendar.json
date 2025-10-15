@@ -1,0 +1,117 @@
+{
+  "events": [
+    {
+      "id": "event_001",
+      "title": "Team Standup",
+      "start": "2025-10-15T09:00:00Z",
+      "end": "2025-10-15T09:30:00Z",
+      "type": "meeting",
+      "priority": "medium",
+      "attendees": 5,
+      "canDecline": false
+    },
+    {
+      "id": "event_002",
+      "title": "Client Presentation",
+      "start": "2025-10-15T10:00:00Z",
+      "end": "2025-10-15T11:30:00Z",
+      "type": "meeting",
+      "priority": "high",
+      "attendees": 8,
+      "canDecline": false
+    },
+    {
+      "id": "event_003",
+      "title": "Code Review Session",
+      "start": "2025-10-15T13:00:00Z",
+      "end": "2025-10-15T14:00:00Z",
+      "type": "meeting",
+      "priority": "medium",
+      "attendees": 3,
+      "canDecline": true
+    },
+    {
+      "id": "event_004",
+      "title": "Project Planning Meeting",
+      "start": "2025-10-15T14:30:00Z",
+      "end": "2025-10-15T16:00:00Z",
+      "type": "meeting",
+      "priority": "low",
+      "attendees": 6,
+      "canDecline": true
+    },
+    {
+      "id": "event_005",
+      "title": "1-on-1 with Manager",
+      "start": "2025-10-15T16:30:00Z",
+      "end": "2025-10-15T17:00:00Z",
+      "type": "meeting",
+      "priority": "high",
+      "attendees": 2,
+      "canDecline": false
+    },
+    {
+      "id": "event_006",
+      "title": "Deep Work Block",
+      "start": "2025-10-16T09:00:00Z",
+      "end": "2025-10-16T12:00:00Z",
+      "type": "focus",
+      "priority": "high",
+      "attendees": 1,
+      "canDecline": false
+    },
+    {
+      "id": "event_007",
+      "title": "Lunch with Team",
+      "start": "2025-10-16T12:00:00Z",
+      "end": "2025-10-16T13:00:00Z",
+      "type": "social",
+      "priority": "low",
+      "attendees": 7,
+      "canDecline": true
+    },
+    {
+      "id": "event_008",
+      "title": "Sprint Retrospective",
+      "start": "2025-10-16T15:00:00Z",
+      "end": "2025-10-16T16:00:00Z",
+      "type": "meeting",
+      "priority": "medium",
+      "attendees": 5,
+      "canDecline": false
+    },
+    {
+      "id": "event_009",
+      "title": "Coffee with Mentor",
+      "start": "2025-10-17T10:00:00Z",
+      "end": "2025-10-17T11:00:00Z",
+      "type": "social",
+      "priority": "medium",
+      "attendees": 2,
+      "canDecline": true
+    },
+    {
+      "id": "event_010",
+      "title": "Emergency Bug Fix Meeting",
+      "start": "2025-10-14T17:00:00Z",
+      "end": "2025-10-14T18:00:00Z",
+      "type": "meeting",
+      "priority": "critical",
+      "attendees": 4,
+      "canDecline": false
+    }
+  ],
+  "metadata": {
+    "totalEvents": 10,
+    "meetingCount": 7,
+    "focusTimeHours": 3,
+    "socialEvents": 2,
+    "meetingDensity": 0.7,
+    "averageMeetingDuration": 60,
+    "declinableCount": 4,
+    "nextWeekProjection": {
+      "totalMeetings": 15,
+      "estimatedFocusTime": 8
+    }
+  }
+}

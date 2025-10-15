@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Navigator - Personal AI Assistant</title>
+    <meta name="description" content="Personal productivity and health assistant using the same architecture as Farm Navigators">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/life-navigator.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Life Navigator</h1>
+            <p class="subtitle">Personal AI Assistant - Powered by Farm Navigators Architecture</p>
+            <div id="auth-status" class="auth-status"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Dashboard Section -->
+        <section class="dashboard-section">
+            <!-- Login Prompt (shown when not authenticated) -->
+            <div id="login-prompt" class="login-prompt" style="display: none;">
+                <h2>Welcome to Life Navigator</h2>
+                <p>Sign in with Google to analyze your productivity and health data</p>
+                <button id="google-signin-btn" class="primary-button">
+                    🔐 Sign in with Google
+                </button>
+                <p class="privacy-note">We only access your Gmail and Calendar data to provide personalized insights. Your data is never stored permanently.</p>
+            </div>
+
+            <!-- Dashboard (shown when authenticated) -->
+            <div id="dashboard-content" style="display: none;">
+                <div class="section-header">
+                    <h2>Your Productivity & Health Dashboard</h2>
+                    <div class="header-actions">
+                        <button id="load-data-btn" class="primary-button">Load My Data</button>
+                        <button id="logout-btn" class="secondary-button">Logout</button>
+                    </div>
+                </div>
+
+            <!-- Insight Cards - Similar to Satellite Data Cards -->
+            <div class="insight-cards">
+                <div class="insight-card" id="email-card">
+                    <div class="card-icon">📧</div>
+                    <h3>Email Stress Level</h3>
+                    <p class="value" id="email-stress-value">--</p>
+                    <p class="status" id="email-stress-status">Loading...</p>
+                    <p class="source">Gmail API</p>
+                </div>
+
+                <div class="insight-card" id="calendar-card">
+                    <div class="card-icon">📅</div>
+                    <h3>Schedule Health</h3>
+                    <p class="value" id="calendar-health-value">--</p>
+                    <p class="status" id="calendar-health-status">Loading...</p>
+                    <p class="source">Google Calendar</p>
+                </div>
+
+                <div class="insight-card" id="fitness-card">
+                    <div class="card-icon">💤</div>
+                    <h3>Sleep & Activity</h3>
+                    <p class="value" id="fitness-value">--</p>
+                    <p class="status" id="fitness-status">Loading...</p>
+                    <p class="source">Apple Health / Fitbit</p>
+                </div>
+            </div>
+
+            <!-- Overall Health Score - Similar to AR Health Score -->
+            <div class="health-score-panel">
+                <h3>Overall Productivity Score</h3>
+                <div class="score-display">
+                    <div class="score-circle" id="score-circle">
+                        <span class="score-number" id="score-number">--</span>
+                        <span class="score-total">/100</span>
+                    </div>
+                    <p class="score-status" id="score-status">Analyzing...</p>
+                </div>
+            </div>
+
+            <!-- Recommendations Panel - Similar to Farm Game Advice -->
+            <div class="recommendations-panel">
+                <h3>Today's Recommendations</h3>
+                <div id="recommendations-list" class="recommendations-list">
+                    <p class="placeholder">Load your data to see personalized recommendations</p>
+                </div>
+            </div>
+
+            <!-- Data Insights -->
+            <div class="insights-detail">
+                <h3>Detailed Analysis</h3>
+                <div id="insights-detail-content" class="insights-content">
+                    <p class="placeholder">Detailed insights will appear here after loading your data</p>
+                </div>
+            </div>
+            </div>
+            <!-- End of dashboard-content -->
+        </section>
+
+        <!-- Architecture Comparison Section -->
+        <section class="architecture-section">
+            <h2>Same Architecture, Different Domain</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h4>Farm Navigators</h4>
+                    <ul>
+                        <li><strong>Data:</strong> NASA Satellites (SMAP, MODIS, Landsat)</li>
+                        <li><strong>Analysis:</strong> Soil health, vegetation, temperature</li>
+                        <li><strong>Output:</strong> Irrigation recommendations</li>
+                        <li><strong>Domain:</strong> Agriculture</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h4>Life Navigator</h4>
+                    <ul>
+                        <li><strong>Data:</strong> Personal APIs (Gmail, Calendar, Fitness)</li>
+                        <li><strong>Analysis:</strong> Stress, schedule, health patterns</li>
+                        <li><strong>Output:</strong> Life optimization recommendations</li>
+                        <li><strong>Domain:</strong> Personal Productivity</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="architecture-note">
+                <p><strong>Key Insight:</strong> The same 4-layer architecture (Data Ingestion → Proxy → Analysis → Presentation) works for any data-driven decision platform. The domain is just a configuration change.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p>Life Navigator - Demonstrating Farm Navigators Architecture Scalability</p>
+        <p>Built for NASA Space Apps Challenge Follow-up Meeting</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="src/analysis/PersonalHealthAnalyzer.js"></script>
+    <script src="src/life-navigator.js"></script>
+</body>
+</html>

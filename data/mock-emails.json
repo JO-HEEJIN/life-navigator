@@ -1,0 +1,86 @@
+{
+  "emails": [
+    {
+      "id": "email_001",
+      "from": "boss@company.com",
+      "subject": "URGENT: Quarterly Report Due Tomorrow",
+      "timestamp": "2025-10-14T09:30:00Z",
+      "snippet": "We need the quarterly report by EOD tomorrow. This is critical for the board meeting.",
+      "labels": ["urgent", "work"],
+      "stressLevel": 0.9
+    },
+    {
+      "id": "email_002",
+      "from": "client@startup.com",
+      "subject": "Re: Project Deadline Extension Request",
+      "timestamp": "2025-10-14T11:15:00Z",
+      "snippet": "Unfortunately we cannot extend the deadline. The launch is scheduled for next week.",
+      "labels": ["work", "deadline"],
+      "stressLevel": 0.8
+    },
+    {
+      "id": "email_003",
+      "from": "hr@company.com",
+      "subject": "Reminder: Annual Performance Review Next Week",
+      "timestamp": "2025-10-14T14:20:00Z",
+      "snippet": "Your annual performance review is scheduled for next Tuesday at 2 PM.",
+      "labels": ["work", "reminder"],
+      "stressLevel": 0.5
+    },
+    {
+      "id": "email_004",
+      "from": "team@company.com",
+      "subject": "Team Lunch This Friday",
+      "timestamp": "2025-10-14T15:45:00Z",
+      "snippet": "Looking forward to seeing everyone at the team lunch this Friday!",
+      "labels": ["social"],
+      "stressLevel": 0.1
+    },
+    {
+      "id": "email_005",
+      "from": "project-manager@company.com",
+      "subject": "Critical Bug Found in Production",
+      "timestamp": "2025-10-14T16:30:00Z",
+      "snippet": "Critical bug reported by customers. Need immediate fix ASAP.",
+      "labels": ["urgent", "critical", "work"],
+      "stressLevel": 1.0
+    },
+    {
+      "id": "email_006",
+      "from": "newsletter@techcrunch.com",
+      "subject": "Daily Tech News Digest",
+      "timestamp": "2025-10-14T08:00:00Z",
+      "snippet": "Top tech stories from around the world...",
+      "labels": ["newsletter"],
+      "stressLevel": 0.0
+    },
+    {
+      "id": "email_007",
+      "from": "mentor@nasa.gov",
+      "subject": "Great Progress on Your Project",
+      "timestamp": "2025-10-14T13:00:00Z",
+      "snippet": "I reviewed your latest updates and the project looks fantastic. Keep up the great work!",
+      "labels": ["positive", "work"],
+      "stressLevel": -0.3
+    },
+    {
+      "id": "email_008",
+      "from": "vendor@service.com",
+      "subject": "Invoice Due in 3 Days",
+      "timestamp": "2025-10-14T10:00:00Z",
+      "snippet": "Your monthly invoice is due in 3 days. Please process payment to avoid service interruption.",
+      "labels": ["billing", "deadline"],
+      "stressLevel": 0.4
+    }
+  ],
+  "metadata": {
+    "totalEmails": 8,
+    "unreadCount": 3,
+    "urgentCount": 2,
+    "averageStressLevel": 0.425,
+    "dateRange": {
+      "start": "2025-10-14T08:00:00Z",
+      "end": "2025-10-14T16:30:00Z"
+    }
+  }
+}

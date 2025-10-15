@@ -1,0 +1,29 @@
+{
+  "name": "life-navigator",
+  "version": "1.0.0",
+  "description": "Personal AI assistant demonstrating Farm Navigators architecture scalability",
+  "main": "server/personal-proxy.js",
+  "scripts": {
+    "start": "node server/personal-proxy.js",
+    "dev": "nodemon server/personal-proxy.js"
+  },
+  "keywords": [
+    "personal-assistant",
+    "productivity",
+    "health",
+    "ai",
+    "data-analysis"
+  ],
+  "author": "Farm Navigators Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "googleapis": "^128.0.0",
+    "express-session": "^1.17.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

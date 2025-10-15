@@ -1,0 +1,293 @@
+/**
+ * Life Navigator - Main Styles
+ * NASA Space Apps Challenge Branding Colors
+ */
+
+:root {
+    /* NASA Space Apps Challenge Official Colors */
+    --blue-yonder: #2E96F5;
+    --neon-blue: #0960E1;
+    --electric-blue: #0042A6;
+    --deep-blue: #07173F;
+    --rocket-red: #E43700;
+    --martian-red: #8E1100;
+    --neon-yellow: #EAFE07;
+    --white: #FFFFFF;
+
+    /* Semantic colors */
+    --primary-color: var(--electric-blue);
+    --secondary-color: var(--blue-yonder);
+    --accent-color: var(--neon-yellow);
+    --danger-color: var(--rocket-red);
+    --success-color: #00C853;
+    --warning-color: #FFB300;
+
+    /* Backgrounds */
+    --bg-dark: var(--deep-blue);
+    --bg-medium: #1a2847;
+    --bg-light: #2a3857;
+    --bg-card: #fff;
+
+    /* Text */
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-light: var(--white);
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    /* Border radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--bg-medium) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Header */
+.main-header {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    background: linear-gradient(90deg, var(--blue-yonder), var(--neon-yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--blue-yonder);
+    font-weight: 400;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+/* Section Headers */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.section-header h2 {
+    color: var(--text-light);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Auth Status */
+.auth-status {
+    margin-top: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--blue-yonder);
+}
+
+/* Login Prompt */
+.login-prompt {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.login-prompt h2 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.login-prompt p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.1rem;
+}
+
+.privacy-note {
+    font-size: 0.85rem !important;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: var(--spacing-md) auto 0;
+}
+
+/* Buttons */
+.primary-button {
+    background: linear-gradient(135deg, var(--electric-blue), var(--neon-blue));
+    color: var(--white);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--neon-blue), var(--blue-yonder));
+}
+
+.primary-button:active {
+    transform: translateY(0);
+}
+
+.primary-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.secondary-button {
+    background: transparent;
+    color: var(--text-light);
+    border: 2px solid var(--blue-yonder);
+    padding: calc(var(--spacing-sm) - 2px) var(--spacing-md);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+    background: var(--blue-yonder);
+    transform: translateY(-2px);
+}
+
+.header-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* Sections */
+.dashboard-section,
+.architecture-section {
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.architecture-section h2 {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+/* Footer */
+.main-footer {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.main-footer p {
+    margin: var(--spacing-xs) 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Placeholders */
+.placeholder {
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+/* Error Messages */
+.error-message {
+    background: rgba(228, 55, 0, 0.1);
+    border: 2px solid var(--rocket-red);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    color: var(--text-light);
+}
+
+.error-message h4 {
+    color: var(--rocket-red);
+    margin-bottom: var(--spacing-sm);
+}
+
+.error-message .hint {
+    margin-top: var(--spacing-sm);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.error-message code {
+    background: rgba(0,0,0,0.3);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-family: 'Courier New', monospace;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .primary-button {
+        width: 100%;
+    }
+}
