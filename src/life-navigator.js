@@ -141,15 +141,12 @@ class LifeNavigator {
                 throw new Error('User not authenticated');
             }
 
-            // Parallel API calls - same pattern as NASA data loading
-            const [emailResponse, calendarResponse, fitnessResponse] = await Promise.all([
+            // Parallel API calls - Gmail and Calendar only
+            const [emailResponse, calendarResponse] = await Promise.all([
                 fetch(`${this.apiBaseUrl}/api/gmail/stress-level?userId=${userId}`, {
                     credentials: 'include'
                 }),
                 fetch(`${this.apiBaseUrl}/api/calendar/schedule-health?userId=${userId}`, {
-                    credentials: 'include'
-                }),
-                fetch(`${this.apiBaseUrl}/api/fitness/summary?userId=${userId}`, {
                     credentials: 'include'
                 })
             ]);
@@ -157,7 +154,7 @@ class LifeNavigator {
             this.userData = {
                 emails: await emailResponse.json(),
                 calendar: await calendarResponse.json(),
-                fitness: await fitnessResponse.json()
+                fitness: null  // Fitness API coming soon
             };
 
             console.log('Personal data loaded:', this.userData);
@@ -208,7 +205,7 @@ class LifeNavigator {
             this.setCardColor(calCard, calData.data.meetingDensity);
         }
 
-        // Fitness card
+        // Fitness card - hide for now (API not implemented)
         if (this.userData.fitness) {
             const fitData = this.userData.fitness;
             document.getElementById('fitness-value').textContent =
@@ -219,6 +216,12 @@ class LifeNavigator {
             const fitCard = document.getElementById('fitness-card');
             const sleepScore = fitData.data.sleepDuration >= 7 ? 0.3 : 0.7;
             this.setCardColor(fitCard, sleepScore);
+        } else {
+            // Hide fitness card if no data
+            const fitCard = document.getElementById('fitness-card');
+            if (fitCard) {
+                fitCard.style.display = 'none';
+            }
         }
     }
 
