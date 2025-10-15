@@ -52,7 +52,7 @@ class LifeNavigator {
      */
     async checkAuthStatus() {
         try {
-            const response = await fetch(`${this.apiBaseUrl}/auth/status`, {
+            const response = await fetch(`${this.apiBaseUrl}/api/auth/status`, {
                 credentials: 'include'
             });
             const data = await response.json();
@@ -111,7 +111,7 @@ class LifeNavigator {
      */
     async logout() {
         try {
-            await fetch(`${this.apiBaseUrl}/auth/logout`, {
+            await fetch(`${this.apiBaseUrl}/api/auth/logout`, {
                 credentials: 'include'
             });
             this.currentUser = null;
