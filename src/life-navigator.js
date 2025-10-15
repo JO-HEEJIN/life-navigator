@@ -103,7 +103,7 @@ class LifeNavigator {
      * Initiate Google OAuth login
      */
     initiateGoogleLogin() {
-        window.location.href = `${this.apiBaseUrl}/auth/google`;
+        window.location.href = `${this.apiBaseUrl}/api/auth/google`;
     }
 
     /**
