@@ -57,6 +57,8 @@ class LifeNavigator {
             });
             const data = await response.json();
 
+            console.log('Auth status response:', data);
+
             if (data.authenticated) {
                 this.currentUser = data.userId;
                 this.showDashboard();
@@ -68,9 +70,17 @@ class LifeNavigator {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('auth') === 'success') {
                 window.history.replaceState({}, document.title, window.location.pathname);
-                this.currentUser = data.userId;
-                this.showDashboard();
-                this.loadAllData();
+
+                // Only load data if authenticated
+                if (data.authenticated && data.userId) {
+                    this.currentUser = data.userId;
+                    this.showDashboard();
+                    this.loadAllData();
+                } else {
+                    console.error('OAuth callback but not authenticated:', data);
+                    alert('Authentication completed but session not found. Please try logging in again.');
+                    this.showLoginPrompt();
+                }
             } else if (urlParams.get('auth') === 'error') {
                 alert('Authentication failed. Please try again.');
                 window.history.replaceState({}, document.title, window.location.pathname);

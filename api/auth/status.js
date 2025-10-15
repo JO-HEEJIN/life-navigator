@@ -26,14 +26,30 @@ module.exports = async (req, res) => {
 
         const userId = cookies.userId;
 
+        console.log('Auth status check:', {
+            hasCookie: !!userId,
+            userId: userId,
+            cookies: Object.keys(cookies)
+        });
+
         if (userId) {
             const tokens = await getUserTokens(userId);
+            console.log('Tokens from Redis:', {
+                userId: userId,
+                hasTokens: !!tokens,
+                tokenKeys: tokens ? Object.keys(tokens) : []
+            });
+
             if (tokens) {
                 return res.status(200).json({
                     authenticated: true,
                     userId: userId
                 });
+            } else {
+                console.log('No tokens found in Redis for user:', userId);
             }
+        } else {
+            console.log('No userId cookie found');
         }
 
         res.status(200).json({ authenticated: false });
