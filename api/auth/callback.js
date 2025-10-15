@@ -19,7 +19,8 @@ module.exports = async (req, res) => {
     const { code } = req.query;
 
     if (!code) {
-        return res.redirect('/?auth=error');
+        res.writeHead(302, { Location: 'https://life-navigator-ten.vercel.app/?auth=error' });
+        return res.end();
     }
 
     try {
@@ -39,9 +40,11 @@ module.exports = async (req, res) => {
         res.setHeader('Set-Cookie', `userId=${userId}; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400`);
 
         // Redirect to frontend with success
-        res.redirect('/?auth=success');
+        res.writeHead(302, { Location: 'https://life-navigator-ten.vercel.app/?auth=success' });
+        return res.end();
     } catch (error) {
         console.error('OAuth callback error:', error);
-        res.redirect('/?auth=error');
+        res.writeHead(302, { Location: 'https://life-navigator-ten.vercel.app/?auth=error' });
+        return res.end();
     }
 };

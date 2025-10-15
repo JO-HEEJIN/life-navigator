@@ -27,7 +27,8 @@ module.exports = async (req, res) => {
             prompt: 'consent'
         });
 
-        res.redirect(authUrl);
+        res.writeHead(302, { Location: authUrl });
+        return res.end();
     } catch (error) {
         console.error('OAuth initiation error:', error);
         res.status(500).json({ error: 'OAuth initiation failed' });
