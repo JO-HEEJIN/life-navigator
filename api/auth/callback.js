@@ -17,21 +17,27 @@ module.exports = async (req, res) => {
     }
 
     const { code } = req.query;
+    const redirectBase = 'https://life-navigator-ten.vercel.app';
 
     if (!code) {
-        res.writeHead(302, { Location: 'https://life-navigator-ten.vercel.app/?auth=error' });
-        return res.end();
+        return res.status(302).redirect(`${redirectBase}/?auth=error`);
     }
 
     try {
+        console.log('Starting OAuth token exchange...');
+
         // Exchange code for tokens
         const { tokens } = await oauth2Client.getToken(code);
         oauth2Client.setCredentials(tokens);
+
+        console.log('Token exchange successful');
 
         // Get user info
         const oauth2 = google.oauth2({ version: 'v2', auth: oauth2Client });
         const userInfo = await oauth2.userinfo.get();
         const userId = userInfo.data.email;
+
+        console.log('User authenticated:', userId);
 
         // Store tokens (in production, use Redis or database)
         setUserTokens(userId, tokens);
@@ -40,11 +46,10 @@ module.exports = async (req, res) => {
         res.setHeader('Set-Cookie', `userId=${userId}; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400`);
 
         // Redirect to frontend with success
-        res.writeHead(302, { Location: 'https://life-navigator-ten.vercel.app/?auth=success' });
-        return res.end();
+        console.log('Redirecting to success page...');
+        return res.status(302).redirect(`${redirectBase}/?auth=success`);
     } catch (error) {
         console.error('OAuth callback error:', error);
-        res.writeHead(302, { Location: 'https://life-navigator-ten.vercel.app/?auth=error' });
-        return res.end();
+        return res.status(302).redirect(`${redirectBase}/?auth=error`);
     }
 };
