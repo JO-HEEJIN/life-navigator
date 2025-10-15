@@ -1,10 +1,20 @@
 /**
  * Shared OAuth Configuration for Vercel Serverless Functions
- * Uses Vercel KV (Redis) for persistent token storage
+ * Uses Redis for persistent token storage
  */
 
 const { google } = require('googleapis');
-const { kv } = require('@vercel/kv');
+const Redis = require('ioredis');
+
+// Create Redis client
+const redis = process.env.REDIS_URL
+    ? new Redis(process.env.REDIS_URL, {
+        tls: {
+            rejectUnauthorized: false
+        },
+        maxRetriesPerRequest: 3
+    })
+    : null;
 
 const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID,
@@ -13,8 +23,16 @@ const oauth2Client = new google.auth.OAuth2(
 );
 
 async function getUserTokens(userId) {
+    if (!redis) {
+        console.error('Redis not configured');
+        return null;
+    }
+
     try {
-        const tokens = await kv.get(`user_tokens:${userId}`);
+        const tokensJson = await redis.get(`user_tokens:${userId}`);
+        if (!tokensJson) return null;
+
+        const tokens = JSON.parse(tokensJson);
         return tokens;
     } catch (error) {
         console.error('Error getting user tokens from Redis:', error);
@@ -23,10 +41,17 @@ async function getUserTokens(userId) {
 }
 
 async function setUserTokens(userId, tokens) {
+    if (!redis) {
+        console.error('Redis not configured');
+        return;
+    }
+
     try {
         // Store tokens in Redis with 24 hour expiration
-        await kv.set(`user_tokens:${userId}`, tokens, { ex: 86400 });
+        const tokensJson = JSON.stringify(tokens);
+        await redis.setex(`user_tokens:${userId}`, 86400, tokensJson);
         oauth2Client.setCredentials(tokens);
+        console.log('Tokens successfully stored in Redis for:', userId);
     } catch (error) {
         console.error('Error setting user tokens in Redis:', error);
     }
@@ -35,5 +60,6 @@ async function setUserTokens(userId, tokens) {
 module.exports = {
     oauth2Client,
     getUserTokens,
-    setUserTokens
+    setUserTokens,
+    redis
 };
